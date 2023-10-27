@@ -1,13 +1,19 @@
+
 .card{
     border-radius: 30px;
     margin: 100px;
     overflow: hidden;
+    background-color: aliceblue;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
 }
 .card-header {
     background-color: #ffffff;
     display: flex;
     align-items: center;
     gap: 10px;
+    
   }
   
   .profile-photo {

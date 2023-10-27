@@ -1,27 +1,15 @@
-import os
-from flask import Flask,render_template
-from embedchain import App
+from flask import Flask, render_template, request, jsonify
+from chat import get_answer
 
-os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "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"
 app = Flask(__name__)
 
-
-@app.route('/')
-def hello():
-    return "hello world"
-
+@app.route('/', methods=['GET', 'POST'])
+def response():
+    if request.method == "POST":
+        user_Query = request.form.get('userQuery')  # Retrieve data from the form
+        answer = get_answer(user_Query)
+        return jsonify({"answer": answer})  # Return the answer as JSON
+    return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-# app = App.from_config(yaml_path="huggingface.yaml")
-
-# app.add("https://dte.gujarat.gov.in/dte-team")
-# app.add("https://dte.gujarat.gov.in/recent-update")
-
-# while(True):
-#     question = input("Enter question: ")
-#     if question in ['q', 'exit', 'quit']:
-#         break
-#     answer = app.query(question)
-#     print(answer)
