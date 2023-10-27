@@ -1,0 +1,84 @@
+.card{
+    border-radius: 30px;
+    margin: 100px;
+    overflow: hidden;
+}
+.card-header {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .profile-photo {
+    width: 50px;
+  }
+  
+  .name-status {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  .name-status *{
+    margin:0px;
+  }
+  
+  .mail { 
+    font-size: 1.4rem;
+  }
+
+  .card-body{
+    background-color: #f8f7f8;
+    height: 70vh;
+    overflow: scroll;
+  }
+  .msg-recive-div{
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+  }
+  .msg-send-div{
+    margin-right: auto;
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+  }
+  .profile-photo-small{
+    width: 40px;
+  }
+  .msg-recive{
+    margin-top:30px;
+    font-size: 1rem;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 30px 30px 30px 0px;
+    -webkit-box-shadow: -10px 31px 140px -49px rgba(0,0,0,0.75);
+    -moz-box-shadow: -10px 31px 140px -49px rgba(0,0,0,0.75);
+    box-shadow: -10px 31px 140px -49px rgba(0,0,0,0.75);
+  }
+  .msg-send{
+    margin-top:30px;
+    font-size: 1rem;
+    margin-left: auto;
+    padding: 20px;
+    background-color: #060606;
+    color: white;
+    border-radius: 30px 30px 0px 30px;
+    -webkit-box-shadow: -10px 31px 140px -49px rgba(0,0,0,0.75);
+    -moz-box-shadow: -10px 31px 140px -49px rgba(0,0,0,0.75);
+    box-shadow: -10px 31px 140px -49px rgba(0,0,0,0.75);
+  }
+
+
+  .card-footer{
+    background-color: #ffffff;
+     display: flex;
+  }
+  .card-footer button{
+    width:50px;
+    border-radius: 0px 10px 10px 10px ;
+  }
+
+
+  

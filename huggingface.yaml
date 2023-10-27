@@ -1,0 +1,24 @@
+llm:
+  provider: huggingface
+  config:
+    model: 'google/flan-t5-xxl'
+    temperature: 0.5
+    max_tokens: 1000
+    top_p: 0.8
+    stream: false
+    template: |
+      Use the following pieces of context to answer the query at the end.
+      If you don't know the answer, just say that you don't know, don't try to make up an answer.
+      try to answer breif descriptoin of answer if possible.
+      $context
+
+      Query: $query
+
+      Helpful Answer:
+        system_prompt: |
+          Act as DTE gujarat site helper, your goal is to provide information to all about DTE website .
+
+embedder:
+  provider: huggingface
+  config:
+    model: 'sentence-transformers/all-mpnet-base-v2'
