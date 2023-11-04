@@ -6,9 +6,19 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def response():
     if request.method == "POST":
-        user_Query = request.form.get('userQuery')  # Retrieve data from the form
-        answer = get_answer(user_Query)
-        return jsonify({"answer": answer})  # Return the answer as JSON
+        user_query = request.form.get('userQuery')
+        answer = get_answer(user_query)
+        
+        try:
+            return jsonify({"answer": answer})  # Return the answer as JSON
+        except TypeError:
+            # If answer is not serializable, extract necessary information
+            answer_data = str(answer)  # Or extract required data in a format jsonify can handle
+            return jsonify({"answer": answer_data})
+    return render_template("index.html")
+
+@app.route('/db', methods=['GET', 'POST'])
+def db():
     return render_template("index.html")
 
 if __name__ == "__main__":

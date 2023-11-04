@@ -25,8 +25,8 @@ chatForm.addEventListener('submit', function (event) {
 const chatArea = document.querySelector(".card-body")
 function addChatUser(message) {
     html = `<div class="msg-send-div">
-                <div class="msg-send col-md-6 col-sm-10">
-                    <p>${message}</p>
+                <div class="message msg-send col-auto">
+                    <p class="p-0 m-0">${message}</p>
                 </div> 
             </div>`;
 
@@ -34,13 +34,21 @@ function addChatUser(message) {
 }
 
 function addChatBot(message) {
-    html = `<div class="msg-recive-div">
-                <img class="profile-photo-small rounded-circle" src="{{ url_for('static', filename='logo.jpg') }}" alt="">
-                <div class="msg-recive col-md-6 col-sm-10">
-                    <p>${message}</p>
-                </div>
-            </div>`
+    const botChatBubble = document.createElement('div');
+    botChatBubble.className = 'msg-recive-div';
 
-    chatArea.innerHTML += html;
+    // Process newline characters and create separate paragraphs
+    const paragraphs = message.split('\n').map(paragraph => {
+        return `<p class="p-0 m-0">${paragraph}</p>`;
+    });
+
+    botChatBubble.innerHTML = `
+        <div class="msg-recive col-auto">
+            ${paragraphs.join('<br>')}
+        </div>
+    `;
+
+    chatArea.appendChild(botChatBubble);
 }
+
 

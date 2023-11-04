@@ -10,7 +10,7 @@ llm:
     top_p: 0.8
     stream: false
     template: |
-      Try to answer the quation as DTE's Chatbot
+      Try to answer the quation as DTE site Chatbot
 
       $context
 
